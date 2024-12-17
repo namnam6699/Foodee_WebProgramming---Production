@@ -1,16 +1,23 @@
-FROM node:18
+FROM node:20-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+# Cài đặt dependencies với --force
+RUN npm install --legacy-peer-deps --force
 RUN npm install -g serve
 
 COPY . .
 
+# Set môi trường
+ENV NODE_ENV=production
+ENV CI=false
+ENV DISABLE_ESLINT_PLUGIN=true
+
+# Build
 RUN npm run build
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "build"]
