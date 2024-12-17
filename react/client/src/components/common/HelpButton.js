@@ -28,7 +28,7 @@ function HelpButton() {
 
         if (result.isConfirmed) {
             try {
-                await axios.post('${process.env.REACT_APP_API_URL}/api/support/request-help', {
+                await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/support/request-help', {
                     tableId: currentTableId
                 });
                 

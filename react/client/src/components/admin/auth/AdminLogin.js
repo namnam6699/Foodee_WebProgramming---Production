@@ -30,7 +30,7 @@ function AdminLogin() {
         }
     
         try {
-            const response = await axios.post('${process.env.REACT_APP_API_URL}/api/auth/login', {
+            const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/auth/login', {
                 username,
                 password
             });

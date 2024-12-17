@@ -172,7 +172,7 @@ function CartTable() {
                 </td>
                 <td className="product-image">
                   <img 
-                    src={`${process.env.REACT_APP_API_URL}/uploads/products/${item.image_name}`} 
+                    src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${item.image_name}`} 
                     alt={item.name} 
                   />
                 </td>

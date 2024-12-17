@@ -128,7 +128,7 @@ function TableList() {
   const fetchTables = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/tables', {
+      const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/tables', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -160,7 +160,7 @@ function TableList() {
       };
 
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}/api/tables',
+        'https://foodeewebprogramming-copy-production.up.railway.app/api/tables',
         tableData,
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -192,7 +192,7 @@ function TableList() {
     try {
         const token = localStorage.getItem('token');
         const response = await axios.put(
-            `${process.env.REACT_APP_API_URL}/api/tables/${tableId}`,
+            `https://foodeewebprogramming-copy-production.up.railway.app/api/tables/${tableId}`,
             {
                 table_number: draggedTable.table_number,
                 status: draggedTable.status,
@@ -293,7 +293,7 @@ function TableList() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/tables/${editingTable.id}`,
+        `https://foodeewebprogramming-copy-production.up.railway.app/api/tables/${editingTable.id}`,
         {
           table_number: editingTable.table_number,
           status: editingTable.status,
@@ -343,7 +343,7 @@ function TableList() {
 
       if (result.isConfirmed) {
         const token = localStorage.getItem('token');
-        await axios.delete(`${process.env.REACT_APP_API_URL}/api/tables/${id}`, {
+        await axios.delete(`https://foodeewebprogramming-copy-production.up.railway.app/api/tables/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

@@ -11,7 +11,7 @@ function TableRedirect() {
     const validateAndRedirect = async () => {
       try {
         // Kiểm tra bàn có tồn tại
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tables/info/${tableId}`);
+        const response = await axios.get(`https://foodeewebprogramming-copy-production.up.railway.app/api/tables/info/${tableId}`);
         if (response.data.success) {
           // Lưu tableId vào localStorage
           localStorage.setItem('tableId', tableId);
