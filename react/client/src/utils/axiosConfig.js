@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL || 'https://believable-rejoicing-production.up.railway.app';
+const baseURL = 'https://foodeewebprogramming-copy-production.up.railway.app';
 
 const axiosClient = axios.create({
     baseURL: baseURL,

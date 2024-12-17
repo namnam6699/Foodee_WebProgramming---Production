@@ -8,7 +8,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://foodee-webprogramming---copy-production.up.railway.app'],
+  origin: [
+    'https://perceptive-bravery-production.up.railway.app',
+    'https://foodeewebprogramming-copy-production.up.railway.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
