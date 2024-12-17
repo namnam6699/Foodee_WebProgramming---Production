@@ -33,7 +33,7 @@ function OrderList() {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/orders');
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/orders');
       if (response.data && Array.isArray(response.data.data)) {
         setOrders(response.data.data);
         setFilteredOrders(response.data.data);
@@ -68,7 +68,7 @@ function OrderList() {
 
   const handleSetCompleted = async (orderId) => {
     try {
-      await axios.put(`http://localhost:5001/api/orders/${orderId}/complete`);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/orders/${orderId}/complete`);
       fetchOrders();
       Swal.fire('Thành công', 'Đã cập nhật trạng thái đơn hàng', 'success');
     } catch (error) {
@@ -78,7 +78,7 @@ function OrderList() {
 
   const handleSetPending = async (orderId) => {
     try {
-      await axios.put(`http://localhost:5001/api/orders/${orderId}/pending`);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/orders/${orderId}/pending`);
       fetchOrders();
       Swal.fire('Thành công', 'Đã cập nhật trạng thái đơn hàng', 'success');
     } catch (error) {
@@ -88,7 +88,7 @@ function OrderList() {
 
   const handleUpdateOrder = async (updatedData) => {
     try {
-      await axios.put(`http://localhost:5001/api/orders/${selectedOrder.id}`, updatedData);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/orders/${selectedOrder.id}`, updatedData);
       setShowEditModal(false);
       fetchOrders();
       Swal.fire('Thành công', 'Đã cập nhật đơn hàng', 'success');

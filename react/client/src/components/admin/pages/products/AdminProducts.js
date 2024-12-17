@@ -44,7 +44,7 @@ function AdminProducts() {
     const fetchProducts = async () => {
         try {
             const token = localStorage.getItem('token');
-            const productsRes = await axios.get('http://localhost:5001/api/products', {
+            const productsRes = await axios.get('${process.env.REACT_APP_API_URL}/api/products', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -67,7 +67,7 @@ function AdminProducts() {
         const fetchCategories = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const categoriesRes = await axios.get('http://localhost:5001/api/categories/active', {
+                const categoriesRes = await axios.get('${process.env.REACT_APP_API_URL}/api/categories/active', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 
@@ -90,7 +90,7 @@ function AdminProducts() {
         const fetchAllOptions = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:5001/api/product-options/all', {
+                const response = await axios.get('${process.env.REACT_APP_API_URL}/api/product-options/all', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (response.data.success) {
@@ -107,7 +107,7 @@ function AdminProducts() {
         const fetchProductToppings = async (productId) => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:5001/api/product-options/${productId}`, {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/product-options/${productId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (response.data.success) {
@@ -139,14 +139,14 @@ function AdminProducts() {
             });
             
             if (product.image_name) {
-                setImagePreview(`http://localhost:5001/uploads/products/${product.image_name}`);
+                setImagePreview(`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`);
             } else {
                 setImagePreview(null);
             }
 
             // Fetch topping đã chọn của sản phẩm
             const response = await axios.get(
-                `http://localhost:5001/api/product-options/product/${product.id}`,
+                `${process.env.REACT_APP_API_URL}/api/product-options/product/${product.id}`,
                 {
                     headers: { Authorization: `Bearer ${token}` }
                 }
@@ -181,7 +181,7 @@ function AdminProducts() {
             if (result.isConfirmed) {
                 const token = localStorage.getItem('token');
                 const response = await axios.delete(
-                    `http://localhost:5001/api/products/${productId}`,
+                    `${process.env.REACT_APP_API_URL}/api/products/${productId}`,
                     {
                         headers: { Authorization: `Bearer ${token}` }
                     }
@@ -222,7 +222,7 @@ function AdminProducts() {
             let response;
             if (formData.id) {
                 response = await axios.put(
-                    `http://localhost:5001/api/products/${formData.id}`,
+                    `${process.env.REACT_APP_API_URL}/api/products/${formData.id}`,
                     formDataToSend,
                     {
                         headers: {
@@ -233,7 +233,7 @@ function AdminProducts() {
                 );
             } else {
                 response = await axios.post(
-                    'http://localhost:5001/api/products',
+                    '${process.env.REACT_APP_API_URL}/api/products',
                     formDataToSend,
                     {
                         headers: {
@@ -323,7 +323,7 @@ function AdminProducts() {
         try {
             const token = localStorage.getItem('token');
             const response = await axios.post(
-                'http://localhost:5001/api/product-options',
+                '${process.env.REACT_APP_API_URL}/api/product-options',
                 newOption,
                 {
                     headers: { 
@@ -710,7 +710,7 @@ function AdminProducts() {
                                     <div className="table-image-container">
                                         {product.image_name ? (
                                             <img 
-                                                src={`http://localhost:5001/uploads/products/${product.image_name}`}
+                                                src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`}
                                                 alt={product.name} 
                                                 className="product-image-admin"
                                                 onError={(e) => {

@@ -128,7 +128,7 @@ function TableList() {
   const fetchTables = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5001/api/tables', {
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/tables', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -160,7 +160,7 @@ function TableList() {
       };
 
       const response = await axios.post(
-        'http://localhost:5001/api/tables',
+        '${process.env.REACT_APP_API_URL}/api/tables',
         tableData,
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -192,7 +192,7 @@ function TableList() {
     try {
         const token = localStorage.getItem('token');
         const response = await axios.put(
-            `http://localhost:5001/api/tables/${tableId}`,
+            `${process.env.REACT_APP_API_URL}/api/tables/${tableId}`,
             {
                 table_number: draggedTable.table_number,
                 status: draggedTable.status,
@@ -293,7 +293,7 @@ function TableList() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5001/api/tables/${editingTable.id}`,
+        `${process.env.REACT_APP_API_URL}/api/tables/${editingTable.id}`,
         {
           table_number: editingTable.table_number,
           status: editingTable.status,
@@ -343,7 +343,7 @@ function TableList() {
 
       if (result.isConfirmed) {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5001/api/tables/${id}`, {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/tables/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

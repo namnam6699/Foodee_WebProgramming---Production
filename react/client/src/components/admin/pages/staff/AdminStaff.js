@@ -64,7 +64,7 @@ function AdminStaff() {
     const fetchStaffs = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5001/api/users', {
+            const response = await axios.get('${process.env.REACT_APP_API_URL}/api/users', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -86,7 +86,7 @@ function AdminStaff() {
             if (formData.id) {
                 // Cập nhật nhân viên
                 const response = await axios.put(
-                    `http://localhost:5001/api/users/${formData.username}`,
+                    `${process.env.REACT_APP_API_URL}/api/users/${formData.username}`,
                     {
                         role: formData.role,
                         password: formData.password || undefined
@@ -104,7 +104,7 @@ function AdminStaff() {
             } else {
                 // Thêm nhân viên mới
                 const response = await axios.post(
-                    'http://localhost:5001/api/users',
+                    '${process.env.REACT_APP_API_URL}/api/users',
                     formData,
                     {
                         headers: { Authorization: `Bearer ${token}` }
@@ -152,7 +152,7 @@ function AdminStaff() {
 
             if (result.isConfirmed) {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:5001/api/users/${username}`, {
+                await axios.delete(`${process.env.REACT_APP_API_URL}/api/users/${username}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 Swal.fire('Đã xóa!', 'Nhân viên đã được xóa thành công.', 'success');

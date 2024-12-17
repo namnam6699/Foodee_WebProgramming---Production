@@ -24,7 +24,7 @@ function ProductSection() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/products/public');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/products/public');
         if (response.data.success) {
           setProducts(response.data.data);
         } else {
@@ -74,7 +74,7 @@ function ProductSection() {
 
   const handleAddToCart = async (product) => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/products/toppings/${product.id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/toppings/${product.id}`);
       
       if (response.data.data.hasToppings) {
         setToppings(response.data.data.toppings);
@@ -197,7 +197,7 @@ function ProductSection() {
                 <div className="col-md-3">
                   <Link to={`/product/${product.id}`}>
                     <img 
-                      src={`http://localhost:5001/uploads/products/${product.image_name}`} 
+                      src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`} 
                       alt={product.name}
                       className="img-fluid rounded"
                     />

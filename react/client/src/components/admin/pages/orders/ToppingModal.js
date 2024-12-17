@@ -40,7 +40,7 @@ function ToppingModal({ product, toppings, onConfirm, onClose }) {
           <div className="admin-product-info">
             <img 
               className="admin-topping-product-image"
-              src={`http://localhost:5001/uploads/products/${product.image_name}`}
+              src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`}
               alt={product.name}
               onError={(e) => {
                 e.target.onerror = null;

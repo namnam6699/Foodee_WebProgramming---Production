@@ -10,7 +10,7 @@ function ProductFilters({ currentFilter, onFilterChange }) {
     const fetchCategories = async () => {
       try {
         // Sử dụng API public
-        const response = await axios.get('http://localhost:5001/api/categories/public');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/categories/public');
         
         if (response.data.success) {
           const allCategories = [

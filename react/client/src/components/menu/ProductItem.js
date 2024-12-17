@@ -19,7 +19,7 @@ function ProductItem({ product }) {
       };
 
       const response = await axios.get(
-        `http://localhost:5001/api/products/toppings/${product.id}`,
+        `${process.env.REACT_APP_API_URL}/api/products/toppings/${product.id}`,
         { headers }
       );
       
@@ -99,7 +99,7 @@ function ProductItem({ product }) {
         <div className="product-image">
           <Link to={`/product/${product.id}`}>
             <img 
-              src={`http://localhost:5001/uploads/products/${product.image_name}`}
+              src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`}
               alt={product.name}
               onError={(e) => {
                 e.target.onerror = null;

@@ -46,7 +46,7 @@ function SearchArea() {
 
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5001/api/products/public`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/public`);
       if (response.data.success) {
         const searchTermLower = searchTerm.toLowerCase();
         const filteredProducts = response.data.data.filter(product => 
@@ -116,7 +116,7 @@ function SearchArea() {
                         <div key={product.id} className="col-md-4 mb-4">
                           <div className="card h-100">
                             <img 
-                              src={`http://localhost:5001/uploads/products/${product.image_name}`}
+                              src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`}
                               className="card-img-top"
                               alt={product.name}
                               onError={(e) => {

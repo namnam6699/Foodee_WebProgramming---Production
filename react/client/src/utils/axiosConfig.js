@@ -1,22 +1,25 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const API_URL = 'http://localhost:5001/api';
+const baseURL = process.env.REACT_APP_API_URL || 'https://believable-rejoicing-production.up.railway.app';
 
-// const axiosInstance = axios.create({
-//     baseURL: API_URL
-// });
+const axiosClient = axios.create({
+    baseURL: baseURL,
+    headers: {
+        'Content-Type': 'application/json',
+    }
+});
 
-// axiosInstance.interceptors.request.use(
-//     (config) => {
-//         const token = localStorage.getItem('token');
-//         if (token) {
-//             config.headers.Authorization = `Bearer ${token}`;
-//         }
-//         return config;
-//     },
-//     (error) => {
-//         return Promise.reject(error);
-//     }
-// );
+axiosClient.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
-// export default axiosInstance;
+export default axiosClient;

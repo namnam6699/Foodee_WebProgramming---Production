@@ -18,7 +18,7 @@ function ProductDetail() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/products/public/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/public/${id}`);
         if (response.data.success) {
           setProduct(response.data.data);
         } else {
@@ -66,7 +66,7 @@ function ProductDetail() {
       };
 
       const response = await axios.get(
-        `http://localhost:5001/api/products/toppings/${product.id}`,
+        `${process.env.REACT_APP_API_URL}/api/products/toppings/${product.id}`,
         { headers }
       );
       
@@ -148,7 +148,7 @@ function ProductDetail() {
       <div className="col-md-5">
         <div className="single-product-img">
           <img 
-            src={`http://localhost:5001/uploads/products/${product.image_name}`}
+            src={`${process.env.REACT_APP_API_URL}/uploads/products/${product.image_name}`}
             alt={product.name}
             onError={(e) => {
               e.target.onerror = null;

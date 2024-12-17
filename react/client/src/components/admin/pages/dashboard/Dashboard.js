@@ -48,7 +48,7 @@ function Dashboard() {
                 const token = localStorage.getItem('token');
                 console.log('Fetching stats with token:', token);
 
-                const response = await axios.get('http://localhost:5001/api/dashboard/stats', {
+                const response = await axios.get('${process.env.REACT_APP_API_URL}/api/dashboard/stats', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -215,7 +215,7 @@ function Dashboard() {
     const handleExportOrders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5001/api/dashboard/export/orders', {
+            const response = await axios.get('${process.env.REACT_APP_API_URL}/api/dashboard/export/orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
@@ -238,7 +238,7 @@ function Dashboard() {
     const handleExportRevenue = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5001/api/dashboard/export/revenue', {
+            const response = await axios.get('${process.env.REACT_APP_API_URL}/api/dashboard/export/revenue', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },

@@ -13,7 +13,7 @@ function RelatedProducts() {
     const fetchRelatedProducts = async () => {
       try {
         // Giả sử API trả về các sản phẩm cùng danh mục
-        const response = await axios.get(`http://localhost:5001/api/products/related/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/related/${id}`);
         if (response.data.success) {
           setProducts(response.data.data);
         } else {
