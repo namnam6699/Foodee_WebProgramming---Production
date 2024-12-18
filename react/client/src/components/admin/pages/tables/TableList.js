@@ -9,7 +9,7 @@ import { hasPermission } from '../../../../utils/roleConfig';
 const QRModalComponent = ({ tableId, onClose, tables }) => {
     const [mergedImage, setMergedImage] = useState('');
     const [isClosing, setIsClosing] = useState(false);
-    const qrValue = `https://foodeewebprogramming-copy-production.up.railway.app/table/${tableId}`;
+    const qrValue = `https://foodee.namtech.me/${tableId}`;
     
     useEffect(() => {
         const generateMergedImage = async () => {
