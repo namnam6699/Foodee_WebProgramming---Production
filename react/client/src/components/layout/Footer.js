@@ -29,8 +29,8 @@ function Footer() {
       console.error('Subscribe error:', error);
       Swal.fire({
         icon: 'error',
-        title: 'Có lỗi xảy ra!',
-        text: 'Vui lòng thử lại sau'
+        title: 'Chưa được phép!',
+        text: 'Tính năng đang làm mà thấy vô dụng nên cho ngừng rồi nghen;))'
       });
     } finally {
       setLoading(false);
