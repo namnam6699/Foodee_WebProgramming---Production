@@ -26,6 +26,10 @@ function ProductList({ filter, viewMode }) {
               product.category_id.toString() === filter
             );
           }
+          // Sort theo category_id
+          filteredProducts.sort((a, b) => {
+            return a.category_id - b.category_id;
+          });
           setProducts(filteredProducts);
         } else {
           throw new Error(response.data.message);
@@ -81,9 +85,8 @@ function ProductList({ filter, viewMode }) {
         id: selectedProduct.id,
         name: selectedProduct.name,
         price: selectedProduct.price,
-        image_name: selectedProduct.image_name,
-        toppings: selectedToppings
-      }, quantity);
+        image_name: selectedProduct.image_name
+      }, quantity, selectedToppings);
 
       setShowToppingModal(false);
       
@@ -114,49 +117,78 @@ function ProductList({ filter, viewMode }) {
   return (
     <>
       {viewMode === 'grid' ? (
-        // Grid View
         <div className="row product-lists">
-          {products.map(product => (
+          {/* {products.map(product => (
             <ProductItem key={product.id} product={product} />
-          ))}
+          ))} */}
+          {products.map((product, index) => {
+            const prevProduct = products[index - 1];
+            const showDivider = !prevProduct || prevProduct.category_id !== product.category_id;
+            
+            return (
+              <React.Fragment key={product.id}>
+                {showDivider && (
+                  <div className="col-12">
+                    <div className="category-divider">
+                      <h3>{product.category_name}</h3>
+                    </div>
+                  </div>
+                )}
+                <ProductItem product={product} />
+              </React.Fragment>
+            );
+          })}
         </div>
       ) : (
         // List View
         <div className="product-list">
-          {products.map(product => (
-            <div key={product.id} className="product-list-item row align-items-center mb-4 p-3 border rounded">
-              <div className="col-md-3">
-                <Link to={`/product/${product.id}`}>
-                  <img 
-                    src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`} 
-                    alt={product.name}
-                    className="img-fluid rounded"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/assets/img/products/default-product.jpg';
-                    }}
-                  />
-                </Link>
-              </div>
-              <div className="col-md-6">
-                <Link to={`/product/${product.id}`}>
-                  <h4>{product.name}</h4>
-                </Link>
-                <p>{product.description}</p>
-              </div>
-              <div className="col-md-3 text-right">
-                <div className="price mb-2">
-                  {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.price)}
+          {products.map((product, index) => {
+            const prevProduct = products[index - 1];
+            const showDivider = !prevProduct || prevProduct.category_id !== product.category_id;
+            
+            return (
+              <React.Fragment key={product.id}>
+                {showDivider && (
+                  <div className="category-divider">
+                    <h3>{product.category_name}</h3>
+                  </div>
+                )}
+                <div className="product-list-item row align-items-center mb-4 p-3 border rounded">
+                  <div className="col-md-3">
+                    <Link to={`/product/${product.id}`}>
+                      <img 
+                        src={`http://localhost:5001/uploads/products/${product.image_name}`} 
+                        alt={product.name}
+                        className="img-fluid rounded"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/assets/img/products/default-product.jpg';
+                        }}
+                      />
+                    </Link>
+                  </div>
+                  <div className="col-md-6">
+                    <Link to={`/product/${product.id}`}>
+                      <h4>{product.name}</h4>
+                    </Link>
+                    <p className="product-description">{product.description}</p>
+                  </div>
+                  <div className="col-md-3 text-right">
+                    <div className="price mb-2">
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.price)}
+                    </div>
+                    <button 
+                      className="cart-btn"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      <i className="fas fa-plus"></i>
+                      <span>Thêm vào Giỏ</span>
+                    </button>
+                  </div>
                 </div>
-                <button 
-                  className="cart-btn"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  <i className="fas fa-shopping-cart"></i> Thêm vào Giỏ
-                </button>
-              </div>
-            </div>
-          ))}
+                </React.Fragment>
+            );
+          })} 
         </div>
       )}
 
