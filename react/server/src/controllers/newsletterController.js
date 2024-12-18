@@ -5,7 +5,15 @@ const newsletterController = {
         try {
             const { email } = req.body;
 
-            // Template email với sticker
+            if (!email) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Email is required'
+                });
+            }
+
+            console.log('Attempting to send email to:', email);
+
             const emailTemplate = `
                 <html>
                 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -37,7 +45,12 @@ const newsletterController = {
                 </html>
             `;
 
-            // Cấu hình email
+            // Log trước khi gửi email
+            console.log('Preparing to send email with config:', {
+                from: process.env.EMAIL_USER,
+                to: email
+            });
+
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: email,
@@ -45,18 +58,35 @@ const newsletterController = {
                 html: emailTemplate
             };
 
-            // Gửi email
-            await transporter.sendMail(mailOptions);
+            // Gửi email với Promise
+            await new Promise((resolve, reject) => {
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.error('Send mail error:', error);
+                        reject(error);
+                    } else {
+                        console.log('Email sent:', info.response);
+                        resolve(info);
+                    }
+                });
+            });
 
             res.json({
                 success: true,
                 message: 'Đăng ký nhận tin thành công!'
             });
+
         } catch (error) {
-            console.error('Newsletter subscription error:', error);
+            console.error('Newsletter subscription error:', {
+                message: error.message,
+                stack: error.stack,
+                code: error.code
+            });
+            
             res.status(500).json({
                 success: false,
-                message: 'Có lỗi xảy ra khi đăng ký'
+                message: 'Có lỗi xảy ra khi đăng ký',
+                error: process.env.NODE_ENV === 'development' ? error.message : undefined
             });
         }
     }
