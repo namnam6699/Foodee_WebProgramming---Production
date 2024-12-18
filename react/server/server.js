@@ -52,6 +52,7 @@ const productOptionRoutes = require('./src/routes/productOptionRoutes');
 const cartRoutes = require('./src/routes/cartRoutes');
 const supportRoutes = require('./src/routes/supportRoutes');
 const userRoutes = require('./src/routes/userRoutes');
+const newsletterRoutes = require('./src/routes/newsletterRoutes');
 
 // Apply public routes first (không cần auth)
 app.use('/api/auth', authRoutes);
@@ -66,6 +67,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/product-options', productOptionRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 
 // Global error handling
 app.use((err, req, res, next) => {

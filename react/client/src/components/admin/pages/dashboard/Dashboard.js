@@ -225,7 +225,7 @@ function Dashboard() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'orders.xlsx');
+            link.setAttribute('download', 'Orders_Foodee_namn44241.xlsx');
             document.body.appendChild(link);
             link.click();
             link.remove();
@@ -248,7 +248,7 @@ function Dashboard() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'revenue.xlsx');
+            link.setAttribute('download', 'Revenue_Foodee_namn44241.xlsx');
             document.body.appendChild(link);
             link.click();
             link.remove();

@@ -1,8 +1,42 @@
 // src/components/layout/Footer.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function Footer() {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/newsletter/subscribe', {
+        email: email
+      });
+
+      if (response.data.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Đăng ký thành công!',
+          text: 'Cảm ơn bạn đã đăng ký nhận tin từ Foodee'
+        });
+        setEmail('');
+      }
+    } catch (error) {
+      console.error('Subscribe error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Có lỗi xảy ra!',
+        text: 'Vui lòng thử lại sau'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {/* Footer area */}
@@ -37,12 +71,27 @@ function Footer() {
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
-              <div className="footer-box Đăng ký nhận tin">
+              <div className="footer-box subscribe">
                 <h2 className="widget-title">Đăng ký nhận tin</h2>
                 <p>Đăng ký nhận thông báo để cập nhật những tin tức mới nhất từ chúng tôi.</p>
-                <form action="index">
-                  <input type="email" placeholder="Email" />
-                  <button type="submit"><i className="fas fa-paper-plane"></i></button>
+                <form onSubmit={handleSubmit}>
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <i className="fas fa-spinner fa-spin"></i>
+                    ) : (
+                      <i className="fas fa-paper-plane"></i>
+                    )}
+                  </button>
                 </form>
               </div>
             </div>
