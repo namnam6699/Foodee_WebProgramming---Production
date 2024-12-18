@@ -2,12 +2,17 @@ import React from 'react';
 import { Outlet, useLocation, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { hasPermission, rolePermissions } from '../../../utils/roleConfig';
+import { Capacitor } from '@capacitor/core';
 import './AdminLayout.css';
 
 function AdminLayout() {
     const location = useLocation();
     const currentPath = location.pathname.split('/')[2];
     const role = localStorage.getItem('role');
+
+    // Kiểm tra có phải Android không
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    console.log('Current platform:', Capacitor.getPlatform()); // Debug log
 
     // Nếu đang ở route /admin, redirect về route đầu tiên có quyền
     if (!currentPath) {
@@ -29,7 +34,7 @@ function AdminLayout() {
 
     return (
         <div className="admin-layout">
-            <Sidebar />
+            <Sidebar isAndroid={isAndroid} />
             <main className="admin-main">
                 <Outlet />
             </main>

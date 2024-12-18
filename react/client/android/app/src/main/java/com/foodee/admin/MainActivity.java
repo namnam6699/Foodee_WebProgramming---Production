@@ -21,7 +21,7 @@ public class MainActivity extends BridgeActivity {
             WebView webView = getBridge().getWebView();
             
             // Scale content lên 150%
-            webView.setInitialScale(150);
+            webView.setInitialScale(140);
             
             // Set width 100% của màn hình
             CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(

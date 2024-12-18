@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { hasPermission } from '../../../utils/roleConfig';
 
-function Sidebar() {
+function Sidebar({ isAndroid }) {
     const navigate = useNavigate();
     const username = localStorage.getItem('username');
     const userRole = localStorage.getItem('role');
@@ -18,6 +18,8 @@ function Sidebar() {
     ];
 
     const handleLogout = () => {
+        console.log('Is Android:', isAndroid);
+        
         Swal.fire({
             title: 'Đăng xuất?',
             text: "Bạn có chắc muốn đăng xuất?",
@@ -29,9 +31,12 @@ function Sidebar() {
             cancelButtonText: 'Hủy'
         }).then((result) => {
             if (result.isConfirmed) {
-                localStorage.removeItem('role');
-                localStorage.removeItem('username');
-                navigate('/');
+                localStorage.clear();
+                if (isAndroid) {
+                    navigate('/admin/login');
+                } else {
+                    window.location.replace('/');
+                }
             }
         });
     };
