@@ -157,7 +157,7 @@ function ProductList({ filter, viewMode }) {
                   <div className="col-md-3">
                     <Link to={`/product/${product.id}`}>
                       <img 
-                        src={`https://foodee.namtech.me/uploads/products/${product.image_name}`} 
+                        src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`} 
                         alt={product.name}
                         className="img-fluid rounded"
                         onError={(e) => {

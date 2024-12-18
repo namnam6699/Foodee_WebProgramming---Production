@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: [
-    'https://perceptive-bravery-production.up.railway.app',
+    'https://foodeewebprogramming-copy-production.up.railway.app',
     'https://foodeewebprogramming-copy-production.up.railway.app',
     'https://foodee.namtech.me'
   ],
