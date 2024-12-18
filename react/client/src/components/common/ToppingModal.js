@@ -32,6 +32,17 @@ function ToppingModal({ show, onClose, toppings, onConfirm, product }) {
     }
   };
 
+  // Thêm các hàm xử lý tăng giảm số lượng
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
   if (!show) return null;
 
   return (
@@ -64,12 +75,22 @@ function ToppingModal({ show, onClose, toppings, onConfirm, product }) {
 
           <div className="topping-quantity-section">
             <label>Số lượng:</label>
-            <input 
-              type="number" 
-              min="1" 
-              value={quantity}
-              onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-            />
+            <div className="quantity-controls">
+              <button 
+                className="quantity-btn" 
+                onClick={decreaseQuantity}
+                disabled={quantity <= 1}
+              >
+                -
+              </button>
+              <span className="quantity-display">{quantity}</span>
+              <button 
+                className="quantity-btn" 
+                onClick={increaseQuantity}
+              >
+                +
+              </button>
+            </div>
           </div>
 
           <div className="topping-toppings-list">

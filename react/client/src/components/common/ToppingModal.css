@@ -226,3 +226,58 @@
     opacity: 0;
   }
 }
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.quantity-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  border-radius: 4px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #F28123;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Điều chỉnh responsive */
+@media (max-width: 767px) {
+  .topping-modal-content {
+    width: 90%;
+    max-height: 80vh;
+    margin: 10vh auto;
+  }
+  
+  .quantity-btn {
+    width: 36px; /* Tăng kích thước nút cho dễ bấm trên mobile */
+    height: 36px;
+  }
+  
+  .quantity-display {
+    min-width: 50px;
+    font-size: 18px;
+  }
+}
