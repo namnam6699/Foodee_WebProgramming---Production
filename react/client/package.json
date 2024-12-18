@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/cli": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
-    "qrcode": "^1.5.4", 
-    "qrcode.react": "^3.2.0",  
+    "qrcode": "^1.5.4",
+    "qrcode.react": "^3.2.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -21,22 +24,22 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.24.1",
-    "@babel/plugin-transform-private-methods": "^7.24.1",
     "@babel/plugin-transform-class-properties": "^7.24.1",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.1",
-    "@babel/plugin-transform-optional-chaining": "^7.24.1"
+    "@babel/plugin-transform-optional-chaining": "^7.24.1",
+    "@babel/plugin-transform-private-methods": "^7.24.1",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.1"
   },
   "scripts": {
     "start": "serve -s build",
-    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest" 
+      "react-app/jest"
     ]
   },
   "browserslist": {
