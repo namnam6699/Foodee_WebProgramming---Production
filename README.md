@@ -6,7 +6,7 @@ https://foodee.namtech.me/
 
 ## Ứng dụng di động
 
-https://drive.google.com/file/d/10JARl5uLGTxed1ECVWq1Z7-g9JXDEwzB/view?usp=sharing
+{Trong phần Release bên phải}
 
 ## API documentation
 
