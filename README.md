@@ -623,6 +623,8 @@ Nhận thấy những bất cập đó, dự án "Foodee Restaurant: Website Qu�
 - **Quản lý đơn hàng**: Tích hợp công cụ theo dõi và xử lý đơn hàng nhanh chóng.
 - **Quản lý thực đơn**: Cho phép cập nhật thực đơn, giá cả và tình trạng món ăn.
 - **Thống kê doanh thu**: Hỗ trợ báo cáo doanh thu chi tiết và trực quan.
+- **Phân quyền**: Quản lý quyền truy cập cho các nhân viên.
+- **Bot tele tự động**: Tự động gửi tin nhắn đến nhân viên khi có đơn hàng hoặc khách hàng cần trợ giúp.
 
 ## Công nghệ sử dụng
 - **Frontend**: React.js
