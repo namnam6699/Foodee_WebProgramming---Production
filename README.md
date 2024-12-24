@@ -652,7 +652,7 @@ Dự án được xây dựng theo mô hình MVC:
 - Triển khai các tính năng cá nhân hóa trải nghiệm khách hàng.
 
 ## Đóng góp
-Dự án được xây dựng nhằm mang lại giá trị thực sự cho cả khách hàng và nhà quản lý nhà hàng. Chúng tôi luôn sẵn lòng đón nhận ý kiến đóng góp từ cộng đồng để cải thiện hệ thống và mang đến trải nghiệm tốt hơn.
+Dự án được xây dựng nhằm mang lại giá trị thực sự cho cả khách hàng và nhà quản lý nhà hàng. NamNam luôn sẵn lòng đón nhận ý kiến đóng góp từ cộng đồng để cải thiện hệ thống và mang đến trải nghiệm tốt hơn.
 
 ![alt text](image.png)
 
