@@ -87,13 +87,24 @@ function OrderList() {
     }
   };
 
-  const handleUpdateOrder = async (updatedData) => {
+  const handleUpdateOrder = async (orderId, updatedData) => {
     try {
-      await axios.put(`https://foodeewebprogramming-copy-production.up.railway.app/api/orders/${selectedOrder.id}`, updatedData);
-      setShowEditModal(false);
-      fetchOrders();
-      Swal.fire('Thành công', 'Đã cập nhật đơn hàng', 'success');
+      const formattedData = {
+        tableId: updatedData.tableId,
+        products: updatedData.products.map(item => ({
+          product_id: item.product.id,
+          quantity: item.quantity,
+          base_price: Number(item.product.price),
+          topping_price: item.toppings.reduce((sum, t) => sum + (Number(t.price_adjustment) || 0), 0),
+          order_toppings: item.toppings
+        }))
+      };
+      
+      await axios.put(`/api/orders/${orderId}`, formattedData);
+      fetchOrders(); // Refresh lại danh sách
+      setShowEditForm(false);
     } catch (error) {
+      console.error('Error updating order:', error);
       Swal.fire('Lỗi', 'Không thể cập nhật đơn hàng', 'error');
     }
   };
@@ -197,16 +208,16 @@ function OrderList() {
         product: {
           id: item.product_id,
           name: item.name,
-          price: item.basePrice
+          price: item.base_price
         },
         quantity: item.quantity,
-        toppings: item.order_toppings ? JSON.parse(item.order_toppings) : [],
-        total: item.totalPrice
+        toppings: Array.isArray(item.order_toppings) ? item.order_toppings : [],
+        total: item.total_price || item.totalPrice
       }))
     };
     
     setSelectedOrder(formattedOrder);
-    setShowEditForm(true);
+    setShowForm(true);
   };
 
   if (loading) return <div className="text-center p-5">Đang tải...</div>;
