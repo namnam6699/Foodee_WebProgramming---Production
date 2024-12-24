@@ -8,6 +8,10 @@ https://foodee.namtech.me/
 
 {Trong phần Release bên phải}
 
+## Tài khoản demo
+
+admin / 1
+
 ## API documentation
 
 https://www.postman.com/technical-candidate-72354826/foodee-documentation/collection/mfylrb2/foodee-restaurant-api
