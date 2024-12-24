@@ -10,7 +10,8 @@ https://foodee.namtech.me/
 
 ## Tài khoản demo
 
-admin / 1
+Tài khoản: ```admin``` 
+Mật khẩu: ```1```
 
 ## API documentation
 
