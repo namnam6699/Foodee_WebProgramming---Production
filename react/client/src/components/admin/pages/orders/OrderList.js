@@ -22,6 +22,7 @@ function OrderList() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [ordersPerPage] = useState(15);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const canCreateOrder = hasPermission(userRole, 'orders', 'create');
   const canUpdateStatus = hasPermission(userRole, 'orders', 'updateStatus');
@@ -188,6 +189,11 @@ function OrderList() {
     }, 300);
   };
 
+  const handleEditOrder = (order) => {
+    setSelectedOrder(order);
+    setShowEditForm(true);
+  };
+
   if (loading) return <div className="text-center p-5">Đang tải...</div>;
 
   return (
@@ -314,6 +320,9 @@ function OrderList() {
                         </button>
                       </>
                     )}
+                    <button className="edit-btn" onClick={() => handleEditOrder(order)}>
+                      <i className="fas fa-edit"></i>
+                    </button>
                   </td>
                 </tr>
               ))
@@ -420,6 +429,19 @@ function OrderList() {
                 Đóng
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showEditForm && selectedOrder && (
+        <div className="modal">
+          <div className="modal-content">
+            <OrderForm 
+              initialData={selectedOrder}
+              isEdit={true}
+              onClose={() => setShowEditForm(false)}
+              onSubmit={handleUpdateOrder}
+            />
           </div>
         </div>
       )}

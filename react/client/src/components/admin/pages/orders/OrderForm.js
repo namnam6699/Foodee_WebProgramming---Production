@@ -5,13 +5,13 @@ import OrderProductCard from './OrderProductCard';
 import ToppingModal from './ToppingModal';
 import './OrderForm.css';
 
-function OrderForm({ onClose }) {
+function OrderForm({ initialData, isEdit, onClose }) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showToppingModal, setShowToppingModal] = useState(false);
   const [toppings, setToppings] = useState([]);
-  const [tableNumber, setTableNumber] = useState('');
-  const [orderItems, setOrderItems] = useState([]);
+  const [tableNumber, setTableNumber] = useState(isEdit ? initialData.table_id : '');
+  const [orderItems, setOrderItems] = useState(isEdit ? initialData.product_details : []);
   const [tables, setTables] = useState([]);
 
   // Lấy token từ localStorage
@@ -150,38 +150,41 @@ function OrderForm({ onClose }) {
     }
 
     try {
-      // Tạo cấu trúc dữ liệu giống như trong CartTotal
       const orderData = {
         tableId: tableNumber,
-        products: orderItems.map(item => {
-          const toppingTotal = item.toppings.reduce((sum, topping) => 
-            sum + (parseFloat(topping.price_adjustment) || 0), 0);
-
-          return {
-            product_id: item.product.id,
-            quantity: item.quantity,
-            base_price: parseFloat(item.product.price),
-            topping_price: toppingTotal,
-            order_toppings: item.toppings || []
-          };
-        })
+        products: orderItems.map(item => ({
+          product_id: item.product.id,
+          quantity: item.quantity,
+          base_price: parseFloat(item.product.price),
+          topping_price: item.toppings.reduce((sum, topping) => 
+            sum + (parseFloat(topping.price_adjustment) || 0), 0),
+          order_toppings: item.toppings || []
+        }))
       };
 
-      // Gửi một request duy nhất với tất cả sản phẩm
-      const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/orders/add', orderData);
-
-      if (response.data.success) {
+      if (isEdit) {
+        // Nếu là edit thì gọi API update
+        await axios.put(`https://foodeewebprogramming-copy-production.up.railway.app/api/orders/${initialData.id}`, orderData);
+        await Swal.fire({
+          title: 'Thành công',
+          text: 'Đã cập nhật đơn hàng',
+          icon: 'success',
+          timer: 2000
+        });
+      } else {
+        // Nếu là thêm mới thì giữ nguyên logic cũ
+        await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/orders/add', orderData);
         await Swal.fire({
           title: 'Thành công',
           text: 'Đã thêm đơn hàng mới',
           icon: 'success',
           timer: 2000
         });
-        onClose();
       }
+      onClose();
     } catch (error) {
-      console.error('Error adding order:', error);
-      Swal.fire('Lỗi', 'Không thể thêm đơn hàng', 'error');
+      console.error('Error handling order:', error);
+      Swal.fire('Lỗi', 'Không thể xử lý đơn hàng', 'error');
     }
   };
 
@@ -198,7 +201,7 @@ function OrderForm({ onClose }) {
 
   return (
     <div className="order-form">
-      <h3>Thêm đơn hàng mới</h3>
+      <h3>{isEdit ? 'Sửa đơn hàng' : 'Thêm đơn hàng mới'}</h3>
       
       <div className="form-group-order">
         <label>Chọn bàn</label>

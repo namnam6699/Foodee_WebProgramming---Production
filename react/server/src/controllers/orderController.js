@@ -68,10 +68,45 @@ const orderController = {
     updateOrder: async (req, res) => {
         try {
             const { id } = req.params;
-            await orderModel.updateOrder(id, req.body);
-            return success(res, 'Cập nhật đơn hàng thành công');
+            const { tableId, products } = req.body;
+
+            if (!tableId || !products || !Array.isArray(products)) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Dữ liệu đơn hàng không hợp lệ'
+                });
+            }
+
+            // Xử lý từng sản phẩm trong đơn hàng
+            const processedProducts = await Promise.all(products.map(async (product) => {
+                const [productInfo] = await db.execute(
+                    'SELECT * FROM products WHERE id = ?',
+                    [product.product_id]
+                );
+
+                if (!productInfo || productInfo.length === 0) {
+                    throw new Error(`Sản phẩm ${product.product_id} không tồn tại`);
+                }
+
+                return {
+                    ...product,
+                    base_price: productInfo[0].price
+                };
+            }));
+
+            await orderModel.updateOrder(id, tableId, processedProducts);
+
+            res.json({
+                success: true,
+                message: 'Cập nhật đơn hàng thành công'
+            });
         } catch (err) {
-            return error(res, 'Không thể cập nhật đơn hàng', err);
+            console.error('Error in updateOrder:', err);
+            res.status(500).json({
+                success: false,
+                message: 'Không thể cập nhật đơn hàng',
+                error: err.message
+            });
         }
     },
 

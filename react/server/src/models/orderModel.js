@@ -275,16 +275,64 @@ const orderModel = {
         }
     },
 
-    updateOrder: async (orderId, data) => {
+    updateOrder: async (orderId, tableId, products) => {
+        const connection = await db.getConnection();
         try {
-            const { quantity, note } = data;
-            await db.execute(
-                'UPDATE orders SET quantity = ?, note = ? WHERE id = ?',
-                [quantity, note, orderId]
+            await connection.beginTransaction();
+
+            // Update thông tin đơn hàng
+            await connection.execute(
+                'UPDATE orders SET table_id = ? WHERE id = ?',
+                [tableId, orderId]
             );
+
+            // Xóa các order items cũ
+            await connection.execute(
+                'DELETE FROM order_items WHERE order_id = ?',
+                [orderId]
+            );
+
+            // Thêm order items mới
+            for (const product of products) {
+                await connection.execute(
+                    `INSERT INTO order_items (
+                        order_id, 
+                        product_id, 
+                        quantity, 
+                        base_price, 
+                        topping_price,
+                        order_toppings
+                    ) VALUES (?, ?, ?, ?, ?, ?)`,
+                    [
+                        orderId,
+                        product.product_id,
+                        product.quantity,
+                        product.base_price,
+                        product.topping_price || 0,
+                        JSON.stringify(product.order_toppings || [])
+                    ]
+                );
+            }
+
+            // Update tổng tiền đơn hàng
+            await connection.execute(
+                `UPDATE orders o 
+                SET total_amount = (
+                    SELECT SUM(quantity * (base_price + COALESCE(topping_price, 0)))
+                    FROM order_items
+                    WHERE order_id = ?
+                )
+                WHERE o.id = ?`,
+                [orderId, orderId]
+            );
+
+            await connection.commit();
             return true;
         } catch (error) {
+            await connection.rollback();
             throw error;
+        } finally {
+            connection.release();
         }
     },
 
