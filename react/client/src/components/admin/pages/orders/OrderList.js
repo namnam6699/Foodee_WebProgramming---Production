@@ -190,7 +190,22 @@ function OrderList() {
   };
 
   const handleEditOrder = (order) => {
-    setSelectedOrder(order);
+    const formattedOrder = {
+      id: order.id,
+      table_id: order.table_id,
+      product_details: order.product_details.map(item => ({
+        product: {
+          id: item.product_id,
+          name: item.name,
+          price: item.basePrice
+        },
+        quantity: item.quantity,
+        toppings: item.order_toppings ? JSON.parse(item.order_toppings) : [],
+        total: item.totalPrice
+      }))
+    };
+    
+    setSelectedOrder(formattedOrder);
     setShowEditForm(true);
   };
 

@@ -235,23 +235,23 @@ function OrderForm({ initialData, isEdit, onClose }) {
           <h4>Món đã chọn:</h4>
           {orderItems.map((item, index) => (
             <div key={index} className="selected-item">
-              <span>{item.product.name} x {item.quantity}</span>
-              {item.toppings.length > 0 && (
+              <span>
+                {item.product?.name || 'Không có tên'} x {item.quantity}
+              </span>
+              {item.toppings?.length > 0 && (
                 <div className="item-toppings">
                   {item.toppings.map(t => t.name).join(', ')}
                 </div>
               )}
-              <span>{new Intl.NumberFormat('vi-VN').format(item.total)}đ</span>
+              <span>
+                {new Intl.NumberFormat('vi-VN').format(item.total || 0)}đ
+              </span>
             </div>
           ))}
           <div className="order-total">
             <strong>Tổng cộng: </strong>
             <span>
-              {new Intl.NumberFormat('vi-VN', { 
-                style: 'currency', 
-                currency: 'VND',
-                maximumFractionDigits: 0 
-              }).format(calculateTotal())}
+              {new Intl.NumberFormat('vi-VN').format(calculateTotal())}đ
             </span>
           </div>
         </div>
