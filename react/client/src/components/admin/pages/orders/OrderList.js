@@ -159,7 +159,7 @@ function OrderList() {
 
   const formatDateTime = (dateString) => {
     const date = new Date(dateString);
-    date.setHours(date.getHours() + 7);
+    date.setHours(date.getHours());
     return date.toLocaleString('vi-VN');
   };
 
