@@ -209,7 +209,7 @@ const DashboardController = {
                         toppings: item.toppings,
                         total_amount: index === 0 ? `${order.total_amount}đ` : '',
                         status: index === 0 ? (order.status === 'completed' ? 'Hoàn thành' : 'Đang chờ') : '',
-                        created_at: index === 0 ? new Date(order.created_at).toLocaleString('vi-VN') : ''
+                        created_at: index === 0 ? new Date(new Date(order.created_at).getTime() - (7 * 60 * 60 * 1000)).toLocaleString('vi-VN') : ''
                     });
                 });
 

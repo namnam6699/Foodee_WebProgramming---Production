@@ -188,6 +188,29 @@ function OrderList() {
     }, 300);
   };
 
+  const handleDeleteOrder = async (orderId) => {
+    try {
+      const result = await Swal.fire({
+        title: 'Xác nhận xóa',
+        text: 'Bạn có chắc chắn muốn xóa đơn hàng này?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Xóa',
+        cancelButtonText: 'Hủy',
+        confirmButtonColor: '#d33'
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(`https://foodeewebprogramming-copy-production.up.railway.app/api/orders/${orderId}`);
+        fetchOrders();
+        Swal.fire('Thành công', 'Đã xóa đơn hàng', 'success');
+      }
+    } catch (error) {
+      console.error('Error deleting order:', error);
+      Swal.fire('Lỗi', 'Không thể xóa đơn hàng', 'error');
+    }
+  };
+
   if (loading) return <div className="text-center p-5">Đang tải...</div>;
 
   return (
@@ -314,6 +337,13 @@ function OrderList() {
                         </button>
                       </>
                     )}
+                    <button 
+                      className="delete-btn" 
+                      onClick={() => handleDeleteOrder(order.id)}
+                      title="Xóa đơn hàng"
+                    >
+                      <i className="fas fa-trash"></i>
+                    </button>
                   </td>
                 </tr>
               ))

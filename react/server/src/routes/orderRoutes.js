@@ -16,4 +16,7 @@ router.put('/:id', orderController.updateOrder);
 router.put('/:id/complete', orderController.setOrderCompleted);
 router.put('/:id/pending', orderController.setOrderPending);
 
+// Thêm route xóa đơn hàng
+router.delete('/:id', orderController.deleteOrder);
+
 module.exports = router;

@@ -27,7 +27,7 @@ const orderModel = {
 
             let orderId;
             if (!existingOrder.length) {
-                const orderCode = `ORD${Date.now()}`;
+                const orderCode = `ORD${Date.now() - (7 * 60 * 60 * 1000)}`;
                 const [orderResult] = await db.execute(
                     `INSERT INTO orders (table_id, order_code, total_amount, status) 
                      VALUES (?, ?, 0, 'pending')`,
@@ -139,7 +139,7 @@ const orderModel = {
             await connection.beginTransaction();
 
             // 1. Tạo đơn hàng mới
-            const orderCode = `ORD${Date.now()}`;
+            const orderCode = `ORD${Date.now() - (7 * 60 * 60 * 1000)}`;
             const totalAmount = products.reduce((sum, product) => 
                 sum + (product.quantity * (product.base_price + (product.topping_price || 0))), 0);
 
@@ -289,14 +289,29 @@ const orderModel = {
     },
 
     deleteOrder: async (orderId) => {
+        const connection = await db.getConnection();
         try {
-            await db.execute(
+            await connection.beginTransaction();
+            
+            // Xóa order items trước
+            await connection.execute(
+                'DELETE FROM order_items WHERE order_id = ?',
+                [orderId]
+            );
+            
+            // Sau đó xóa order
+            await connection.execute(
                 'DELETE FROM orders WHERE id = ?',
                 [orderId]
             );
+
+            await connection.commit();
             return true;
         } catch (error) {
+            await connection.rollback();
             throw error;
+        } finally {
+            connection.release();
         }
     },
 
