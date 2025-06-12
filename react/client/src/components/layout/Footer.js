@@ -13,7 +13,7 @@ function Footer() {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/newsletter/subscribe', {
+      const response = await axios.post('https://api.namtech.me/api/newsletter/subscribe', {
         email: email
       });
 

@@ -18,7 +18,7 @@ function ProductList({ filter, viewMode }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/products/public');
+        const response = await axios.get('https://api.namtech.me/api/products/public');
         if (response.data.success) {
           let filteredProducts = response.data.data;
           if (filter !== '*') {
@@ -47,7 +47,7 @@ function ProductList({ filter, viewMode }) {
 
   const handleAddToCart = async (product) => {
     try {
-      const response = await axios.get(`https://foodeewebprogramming-copy-production.up.railway.app/api/products/toppings/${product.id}`);
+      const response = await axios.get(`https://api.namtech.me/api/products/toppings/${product.id}`);
       
       if (response.data.data.hasToppings) {
         setToppings(response.data.data.toppings);
@@ -157,7 +157,7 @@ function ProductList({ filter, viewMode }) {
                   <div className="col-md-3">
                     <Link to={`/product/${product.id}`}>
                       <img 
-                        src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`} 
+                        src={`https://api.namtech.me/uploads/products/${product.image_name}`} 
                         alt={product.name}
                         className="img-fluid rounded"
                         onError={(e) => {

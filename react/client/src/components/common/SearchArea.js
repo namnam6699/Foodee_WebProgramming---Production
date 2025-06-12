@@ -46,7 +46,7 @@ function SearchArea() {
 
     setLoading(true);
     try {
-      const response = await axios.get(`https://foodeewebprogramming-copy-production.up.railway.app/api/products/public`);
+      const response = await axios.get(`https://api.namtech.me/api/products/public`);
       if (response.data.success) {
         const searchTermLower = searchTerm.toLowerCase();
         const filteredProducts = response.data.data.filter(product => 
@@ -116,7 +116,7 @@ function SearchArea() {
                         <div key={product.id} className="col-md-4 mb-4">
                           <div className="card h-100">
                             <img 
-                              src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`}
+                              src={`https://api.namtech.me/uploads/products/${product.image_name}`}
                               className="card-img-top"
                               alt={product.name}
                               onError={(e) => {

@@ -35,7 +35,7 @@ function AdminCategories() {
     const fetchCategories = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/categories', {
+            const response = await axios.get('https://api.namtech.me/api/categories', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -60,7 +60,7 @@ function AdminCategories() {
             if (formData.id) {
                 // Cập nhật danh mục
                 const response = await axios.put(
-                    `https://foodeewebprogramming-copy-production.up.railway.app/api/categories/${formData.id}`,
+                    `https://api.namtech.me/api/categories/${formData.id}`,
                     {
                         name: formData.name,
                         description: formData.description,
@@ -85,7 +85,7 @@ function AdminCategories() {
             } else {
                 // Thêm danh mục mới
                 const response = await axios.post(
-                    'https://foodeewebprogramming-copy-production.up.railway.app/api/categories',
+                    'https://api.namtech.me/api/categories',
                     {
                         name: formData.name,
                         description: formData.description,
@@ -143,7 +143,7 @@ function AdminCategories() {
 
             if (result.isConfirmed) {
                 const token = localStorage.getItem('token');
-                await axios.delete(`https://foodeewebprogramming-copy-production.up.railway.app/api/categories/${id}`, {
+                await axios.delete(`https://api.namtech.me/api/categories/${id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 Swal.fire('Đã xóa!', 'Danh mục đã được xóa thành công.', 'success');

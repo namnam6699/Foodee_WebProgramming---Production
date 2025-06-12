@@ -31,7 +31,7 @@ function OrderForm({ onClose }) {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/products/public');
+      const response = await axios.get('https://api.namtech.me/api/products/public');
       setProducts(response.data.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -41,7 +41,7 @@ function OrderForm({ onClose }) {
 
   const fetchTables = async () => {
     try {
-      const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/tables', config);
+      const response = await axios.get('https://api.namtech.me/api/tables', config);
       if (response.data.success) {
         const availableTables = response.data.data.filter(table => 
           table.status === 'available' && table.table_number !== 'CASH'
@@ -58,7 +58,7 @@ function OrderForm({ onClose }) {
     setSelectedProduct(product);
     try {
       const response = await axios.get(
-        `https://foodeewebprogramming-copy-production.up.railway.app/api/products/toppings/${product.id}`,
+        `https://api.namtech.me/api/products/toppings/${product.id}`,
         config
       );
       
@@ -168,7 +168,7 @@ function OrderForm({ onClose }) {
       };
 
       // Gửi một request duy nhất với tất cả sản phẩm
-      const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/orders/add', orderData);
+      const response = await axios.post('https://api.namtech.me/api/orders/add', orderData);
 
       if (response.data.success) {
         await Swal.fire({

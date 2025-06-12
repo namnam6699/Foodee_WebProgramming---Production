@@ -64,7 +64,7 @@ function AdminStaff() {
     const fetchStaffs = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/users', {
+            const response = await axios.get('https://api.namtech.me/api/users', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -86,7 +86,7 @@ function AdminStaff() {
             if (formData.id) {
                 // Cập nhật nhân viên
                 const response = await axios.put(
-                    `https://foodeewebprogramming-copy-production.up.railway.app/api/users/${formData.username}`,
+                    `https://api.namtech.me/api/users/${formData.username}`,
                     {
                         role: formData.role,
                         password: formData.password || undefined
@@ -104,7 +104,7 @@ function AdminStaff() {
             } else {
                 // Thêm nhân viên mới
                 const response = await axios.post(
-                    'https://foodeewebprogramming-copy-production.up.railway.app/api/users',
+                    'https://api.namtech.me/api/users',
                     formData,
                     {
                         headers: { Authorization: `Bearer ${token}` }
@@ -152,7 +152,7 @@ function AdminStaff() {
 
             if (result.isConfirmed) {
                 const token = localStorage.getItem('token');
-                await axios.delete(`https://foodeewebprogramming-copy-production.up.railway.app/api/users/${username}`, {
+                await axios.delete(`https://api.namtech.me/api/users/${username}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 Swal.fire('Đã xóa!', 'Nhân viên đã được xóa thành công.', 'success');

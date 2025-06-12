@@ -24,7 +24,7 @@ function ProductSection() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/products/public');
+        const response = await axios.get('https://api.namtech.me/api/products/public');
         if (response.data.success) {
           setProducts(response.data.data);
         } else {
@@ -74,7 +74,7 @@ function ProductSection() {
 
   const handleAddToCart = async (product) => {
     try {
-      const response = await axios.get(`https://foodeewebprogramming-copy-production.up.railway.app/api/products/toppings/${product.id}`);
+      const response = await axios.get(`https://api.namtech.me/api/products/toppings/${product.id}`);
       
       if (response.data.data.hasToppings) {
         setToppings(response.data.data.toppings);

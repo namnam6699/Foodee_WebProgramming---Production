@@ -65,11 +65,11 @@ function CartTotal() {
         };
 
         console.log('Sending order data:', orderData);
-        const response = await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/orders/add', orderData);
+        const response = await axios.post('https://api.namtech.me/api/orders/add', orderData);
 
         if (response.data.success) {
           // Gửi thông báo qua Telegram sau khi lưu đơn hàng thành công
-          await axios.post('https://foodeewebprogramming-copy-production.up.railway.app/api/support/notify-order', {
+          await axios.post('https://api.namtech.me/api/support/notify-order', {
             tableId: parseInt(tableId),
             products: cartItems,
             totalAmount: calculateTotal()

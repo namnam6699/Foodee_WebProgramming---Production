@@ -6,7 +6,7 @@ function OrderProductCard({ product, onSelect }) {
     <div className="order-product-card" onClick={() => onSelect(product)}>
       <div className="product-image">
         <img 
-          src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`} 
+          src={`https://api.namtech.me/uploads/products/${product.image_name}`} 
           alt={product.name}
           onError={(e) => {
             e.target.onerror = null;

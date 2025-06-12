@@ -48,7 +48,7 @@ function Dashboard() {
                 const token = localStorage.getItem('token');
                 console.log('Fetching stats with token:', token);
 
-                const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/dashboard/stats', {
+                const response = await axios.get('https://api.namtech.me/api/dashboard/stats', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -215,7 +215,7 @@ function Dashboard() {
     const handleExportOrders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/dashboard/export/orders', {
+            const response = await axios.get('https://api.namtech.me/api/dashboard/export/orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
@@ -238,7 +238,7 @@ function Dashboard() {
     const handleExportRevenue = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('https://foodeewebprogramming-copy-production.up.railway.app/api/dashboard/export/revenue', {
+            const response = await axios.get('https://api.namtech.me/api/dashboard/export/revenue', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },

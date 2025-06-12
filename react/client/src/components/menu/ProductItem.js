@@ -19,7 +19,7 @@ function ProductItem({ product }) {
       };
 
       const response = await axios.get(
-        `https://foodeewebprogramming-copy-production.up.railway.app/api/products/toppings/${product.id}`,
+        `https://api.namtech.me/api/products/toppings/${product.id}`,
         { headers }
       );
       
@@ -99,7 +99,7 @@ function ProductItem({ product }) {
         <div className="product-image">
           <Link to={`/product/${product.id}`}>
             <img 
-              src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product.image_name}`}
+              src={`https://api.namtech.me/uploads/products/${product.image_name}`}
               alt={product.name}
               onError={(e) => {
                 e.target.onerror = null;

@@ -172,7 +172,7 @@ function CartTable() {
                 </td>
                 <td className="product-image">
                   <img 
-                    src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${item.image_name}`} 
+                    src={`https://api.namtech.me/uploads/products/${item.image_name}`} 
                     alt={item.name} 
                   />
                 </td>

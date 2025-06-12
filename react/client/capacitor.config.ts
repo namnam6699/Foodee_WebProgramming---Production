@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'Foodee Admin',
   webDir: 'build',
   server: {
-    url: 'https://perceptive-bravery-production.up.railway.app/admin',
+    url: 'https://foodee.namtech.me/admin',
     cleartext: true
   },
   android: {

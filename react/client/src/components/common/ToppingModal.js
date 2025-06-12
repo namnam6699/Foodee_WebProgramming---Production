@@ -57,7 +57,7 @@ function ToppingModal({ show, onClose, toppings, onConfirm, product }) {
           <div className="topping-product-info">
             <div className="topping-product-image">
               <img 
-                src={`https://foodeewebprogramming-copy-production.up.railway.app/uploads/products/${product?.image_name}`}
+                src={`https://api.namtech.me/uploads/products/${product?.image_name}`}
                 alt={product?.name}
                 onError={(e) => {
                   e.target.onerror = null;

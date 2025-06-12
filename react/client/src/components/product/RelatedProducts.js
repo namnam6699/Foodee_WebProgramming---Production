@@ -13,7 +13,7 @@ function RelatedProducts() {
     const fetchRelatedProducts = async () => {
       try {
         // Giả sử API trả về các sản phẩm cùng danh mục
-        const response = await axios.get(`https://foodeewebprogramming-copy-production.up.railway.app/api/products/related/${id}`);
+        const response = await axios.get(`https://api.namtech.me/api/products/related/${id}`);
         if (response.data.success) {
           setProducts(response.data.data);
         } else {
