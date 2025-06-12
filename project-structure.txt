@@ -1,0 +1,384 @@
+Project Structure: Foodee_WebProgramming---Production
+Path: /home/namn44241/servercode/Foodee_WebProgramming---Production
+============================================================
+|-- [MD] README.md
+|-- [JS] get-project-structure.js
+|-- [IMG] image-1.png
+|-- [IMG] image.png
+`-- [DIR] react/
+    |-- [DIR] client/
+    |   |-- [FILE] .babelrc
+    |   |-- [FILE] .dockerignore
+    |   |-- [FILE] Dockerfile
+    |   |-- [MD] README.md
+    |   |-- [DIR] android/
+    |   |   |-- [DIR] app/
+    |   |   |   |-- [FILE] proguard-rules.pro
+    |   |   |   |-- [DIR] release/
+    |   |   |   |   `-- [FILE] Foodee App Admin.rar
+    |   |   |   `-- [DIR] src/
+    |   |   |       |-- [DIR] androidTest/
+    |   |   |       |   `-- [DIR] java/
+    |   |   |       |       `-- [DIR] com/
+    |   |   |       |           `-- [DIR] getcapacitor/
+    |   |   |       |               `-- [DIR] myapp/
+    |   |   |       |-- [DIR] main/
+    |   |   |       |   |-- [FILE] AndroidManifest.xml
+    |   |   |       |   |-- [DIR] java/
+    |   |   |       |   |   `-- [DIR] com/
+    |   |   |       |   |       `-- [DIR] foodee/
+    |   |   |       |   |           `-- [DIR] admin/
+    |   |   |       |   `-- [DIR] res/
+    |   |   |       |       |-- [DIR] drawable/
+    |   |   |       |       |   |-- [FILE] ic_launcher_background.xml
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-land-hdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-land-mdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-land-xhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-land-xxhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-land-xxxhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-port-hdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-port-mdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-port-xhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-port-xxhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-port-xxxhdpi/
+    |   |   |       |       |   `-- [IMG] splash.png
+    |   |   |       |       |-- [DIR] drawable-v24/
+    |   |   |       |       |   `-- [FILE] ic_launcher_foreground.xml
+    |   |   |       |       |-- [DIR] layout/
+    |   |   |       |       |   `-- [FILE] activity_main.xml
+    |   |   |       |       |-- [DIR] mipmap-anydpi-v26/
+    |   |   |       |       |   |-- [FILE] ic_launcher.xml
+    |   |   |       |       |   `-- [FILE] ic_launcher_round.xml
+    |   |   |       |       |-- [DIR] mipmap-hdpi/
+    |   |   |       |       |   |-- [IMG] ic_launcher.png
+    |   |   |       |       |   |-- [IMG] ic_launcher_foreground.png
+    |   |   |       |       |   `-- [IMG] ic_launcher_round.png
+    |   |   |       |       |-- [DIR] mipmap-mdpi/
+    |   |   |       |       |   |-- [IMG] ic_launcher.png
+    |   |   |       |       |   |-- [IMG] ic_launcher_foreground.png
+    |   |   |       |       |   `-- [IMG] ic_launcher_round.png
+    |   |   |       |       |-- [DIR] mipmap-xhdpi/
+    |   |   |       |       |   |-- [IMG] ic_launcher.png
+    |   |   |       |       |   |-- [IMG] ic_launcher_foreground.png
+    |   |   |       |       |   `-- [IMG] ic_launcher_round.png
+    |   |   |       |       |-- [DIR] mipmap-xxhdpi/
+    |   |   |       |       |   |-- [IMG] ic_launcher.png
+    |   |   |       |       |   |-- [IMG] ic_launcher_foreground.png
+    |   |   |       |       |   `-- [IMG] ic_launcher_round.png
+    |   |   |       |       |-- [DIR] mipmap-xxxhdpi/
+    |   |   |       |       |   |-- [IMG] ic_launcher.png
+    |   |   |       |       |   |-- [IMG] ic_launcher_foreground.png
+    |   |   |       |       |   `-- [IMG] ic_launcher_round.png
+    |   |   |       |       |-- [DIR] values/
+    |   |   |       |       |   |-- [FILE] ic_launcher_background.xml
+    |   |   |       |       |   |-- [FILE] strings.xml
+    |   |   |       |       |   `-- [FILE] styles.xml
+    |   |   |       |       `-- [DIR] xml/
+    |   |   |       |           `-- [FILE] file_paths.xml
+    |   |   |       `-- [DIR] test/
+    |   |   |           `-- [DIR] java/
+    |   |   |               `-- [DIR] com/
+    |   |   |                   `-- [DIR] getcapacitor/
+    |   |   |                       `-- [DIR] myapp/
+    |   |   |-- [FILE] capacitor.settings.gradle
+    |   |   |-- [DIR] gradle/
+    |   |   |   `-- [DIR] wrapper/
+    |   |   |       |-- [FILE] gradle-wrapper.jar
+    |   |   |       `-- [FILE] gradle-wrapper.properties
+    |   |   |-- [FILE] gradle.properties
+    |   |   |-- [FILE] gradlew
+    |   |   |-- [FILE] gradlew.bat
+    |   |   |-- [FILE] settings.gradle
+    |   |   `-- [FILE] variables.gradle
+    |   |-- [TS] capacitor.config.ts
+    |   |-- [JSON] package-lock.json
+    |   |-- [JSON] package.json
+    |   |-- [DIR] public/
+    |   |   |-- [DIR] assets/
+    |   |   |   |-- [DIR] bootstrap/
+    |   |   |   |   |-- [DIR] css/
+    |   |   |   |   |   |-- [CSS] bootstrap-grid.css
+    |   |   |   |   |   |-- [FILE] bootstrap-grid.css.map
+    |   |   |   |   |   |-- [CSS] bootstrap-grid.min.css
+    |   |   |   |   |   |-- [FILE] bootstrap-grid.min.css.map
+    |   |   |   |   |   |-- [CSS] bootstrap-reboot.css
+    |   |   |   |   |   |-- [FILE] bootstrap-reboot.css.map
+    |   |   |   |   |   |-- [CSS] bootstrap-reboot.min.css
+    |   |   |   |   |   |-- [FILE] bootstrap-reboot.min.css.map
+    |   |   |   |   |   |-- [CSS] bootstrap.css
+    |   |   |   |   |   |-- [FILE] bootstrap.css.map
+    |   |   |   |   |   |-- [CSS] bootstrap.min.css
+    |   |   |   |   |   `-- [FILE] bootstrap.min.css.map
+    |   |   |   |   `-- [DIR] js/
+    |   |   |   |       |-- [JS] bootstrap.bundle.js
+    |   |   |   |       |-- [FILE] bootstrap.bundle.js.map
+    |   |   |   |       |-- [JS] bootstrap.bundle.min.js
+    |   |   |   |       |-- [FILE] bootstrap.bundle.min.js.map
+    |   |   |   |       |-- [JS] bootstrap.js
+    |   |   |   |       |-- [FILE] bootstrap.js.map
+    |   |   |   |       |-- [JS] bootstrap.min.js
+    |   |   |   |       `-- [FILE] bootstrap.min.js.map
+    |   |   |   |-- [DIR] css/
+    |   |   |   |   |-- [CSS] all.min.css
+    |   |   |   |   |-- [CSS] animate.css
+    |   |   |   |   |-- [CSS] magnific-popup.css
+    |   |   |   |   |-- [CSS] main.css
+    |   |   |   |   |-- [CSS] meanmenu.min.css
+    |   |   |   |   |-- [CSS] owl.carousel.css
+    |   |   |   |   |-- [CSS] responsive.css
+    |   |   |   |   `-- [DIR] scss/
+    |   |   |   |       |-- [DIR] common/
+    |   |   |   |       |   |-- [SCSS] _common.scss
+    |   |   |   |       |   |-- [SCSS] _footer.scss
+    |   |   |   |       |   |-- [SCSS] _header.scss
+    |   |   |   |       |   `-- [SCSS] _hover.scss
+    |   |   |   |       |-- [SCSS] main.scss
+    |   |   |   |       |-- [DIR] pages/
+    |   |   |   |       |   |-- [CSS] _404.css
+    |   |   |   |       |   |-- [SCSS] _404.scss
+    |   |   |   |       |   |-- [SCSS] _about.scss
+    |   |   |   |       |   |-- [SCSS] _contact.scss
+    |   |   |   |       |   `-- [SCSS] _shop.scss
+    |   |   |   |       |-- [FILE] prepros-6.config
+    |   |   |   |       `-- [DIR] sections/
+    |   |   |   |           |-- [SCSS] _about.scss
+    |   |   |   |           |-- [SCSS] _cart-banner.scss
+    |   |   |   |           |-- [SCSS] _hero.scss
+    |   |   |   |           |-- [SCSS] _list.scss
+    |   |   |   |           |-- [SCSS] _news.scss
+    |   |   |   |           |-- [SCSS] _shop-banner.scss
+    |   |   |   |           `-- [SCSS] _testimonials.scss
+    |   |   |   |-- [DIR] img/
+    |   |   |   |   |-- [IMG] 1.jpg
+    |   |   |   |   |-- [IMG] a.jpg
+    |   |   |   |   |-- [IMG] abt.jpg
+    |   |   |   |   |-- [DIR] avaters/
+    |   |   |   |   |   |-- [IMG] avatar1.png
+    |   |   |   |   |   |-- [IMG] avatar2.png
+    |   |   |   |   |   `-- [IMG] avatar3.png
+    |   |   |   |   |-- [IMG] breadcrumb-bg.jpg
+    |   |   |   |   |-- [IMG] dd.jpg
+    |   |   |   |   |-- [IMG] feature-bg.jpg
+    |   |   |   |   |-- [IMG] hero-bg-2.jpg
+    |   |   |   |   |-- [IMG] hero-bg-3.jpg
+    |   |   |   |   |-- [IMG] hero-bg.jpg
+    |   |   |   |   |-- [IMG] homepage-bg-pattern.png
+    |   |   |   |   |-- [DIR] products/
+    |   |   |   |   |   |-- [IMG] product-img-1.jpg
+    |   |   |   |   |   |-- [IMG] product-img-2.jpg
+    |   |   |   |   |   |-- [IMG] product-img-3.jpg
+    |   |   |   |   |   |-- [IMG] product-img-4.jpg
+    |   |   |   |   |   |-- [IMG] product-img-5.jpg
+    |   |   |   |   |   `-- [IMG] product-img-6.jpg
+    |   |   |   |   `-- [DIR] team/
+    |   |   |   |       |-- [IMG] team-1.jpg
+    |   |   |   |       |-- [IMG] team-2.jpg
+    |   |   |   |       `-- [IMG] team-3.jpg
+    |   |   |   |-- [DIR] js/
+    |   |   |   |   |-- [JS] form-contact.js
+    |   |   |   |   |-- [JS] form-validate.js
+    |   |   |   |   |-- [JS] jquery-1.11.3.min.js
+    |   |   |   |   |-- [JS] jquery.countdown.js
+    |   |   |   |   |-- [JS] jquery.isotope-3.0.6.min.js
+    |   |   |   |   |-- [JS] jquery.magnific-popup.min.js
+    |   |   |   |   |-- [JS] jquery.meanmenu.min.js
+    |   |   |   |   |-- [JS] main.js
+    |   |   |   |   |-- [JS] owl.carousel.min.js
+    |   |   |   |   |-- [JS] sticker.js
+    |   |   |   |   `-- [JS] waypoints.js
+    |   |   |   `-- [DIR] webfonts/
+    |   |   |       |-- [FILE] fa-brands-400.eot
+    |   |   |       |-- [FILE] fa-brands-400.eot_
+    |   |   |       |-- [SVG] fa-brands-400.svg
+    |   |   |       |-- [FILE] fa-brands-400.ttf
+    |   |   |       |-- [FILE] fa-brands-400.woff
+    |   |   |       |-- [FILE] fa-brands-400.woff2
+    |   |   |       |-- [FILE] fa-regular-400.eot
+    |   |   |       |-- [FILE] fa-regular-400.eot_
+    |   |   |       |-- [SVG] fa-regular-400.svg
+    |   |   |       |-- [FILE] fa-regular-400.ttf
+    |   |   |       |-- [FILE] fa-regular-400.woff
+    |   |   |       |-- [FILE] fa-regular-400.woff2
+    |   |   |       |-- [FILE] fa-solid-900.eot
+    |   |   |       |-- [FILE] fa-solid-900.eot_
+    |   |   |       |-- [SVG] fa-solid-900.svg
+    |   |   |       |-- [FILE] fa-solid-900.ttf
+    |   |   |       |-- [FILE] fa-solid-900.woff
+    |   |   |       `-- [FILE] fa-solid-900.woff2
+    |   |   |-- [FILE] favicon.ico
+    |   |   |-- [HTML] index.html
+    |   |   |-- [JSON] manifest.json
+    |   |   `-- [TXT] robots.txt
+    |   |-- [DIR] src/
+    |   |   |-- [CSS] App.css
+    |   |   |-- [JS] App.js
+    |   |   |-- [JS] App.test.js
+    |   |   |-- [DIR] assets/
+    |   |   |   `-- [DIR] images/ (content skipped)
+    |   |   |-- [DIR] components/
+    |   |   |   |-- [DIR] about/
+    |   |   |   |   |-- [JS] About.js
+    |   |   |   |   |-- [JS] AboutSection.js
+    |   |   |   |   |-- [JS] BreadcrumbSection.js
+    |   |   |   |   |-- [JS] CartSection.js
+    |   |   |   |   |-- [JS] FeaturedSection.js
+    |   |   |   |   |-- [JS] SingerPageSection.js
+    |   |   |   |   `-- [JS] TeamSection.js
+    |   |   |   |-- [DIR] admin/
+    |   |   |   |   |-- [DIR] auth/
+    |   |   |   |   |   `-- [JS] AdminLogin.js
+    |   |   |   |   |-- [DIR] layout/
+    |   |   |   |   |   |-- [CSS] AdminLayout.css
+    |   |   |   |   |   |-- [JS] AdminLayout.js
+    |   |   |   |   |   `-- [JS] Sidebar.js
+    |   |   |   |   `-- [DIR] pages/
+    |   |   |   |       |-- [DIR] categories/
+    |   |   |   |       |   |-- [CSS] AdminCategories.css
+    |   |   |   |       |   `-- [JS] AdminCategories.js
+    |   |   |   |       |-- [DIR] dashboard/
+    |   |   |   |       |   |-- [CSS] Dashboard.css
+    |   |   |   |       |   |-- [JS] Dashboard.js
+    |   |   |   |       |   |-- [JS] RecentOrders.js
+    |   |   |   |       |   `-- [JS] Stats.js
+    |   |   |   |       |-- [DIR] orders/
+    |   |   |   |       |   |-- [CSS] OrderForm.css
+    |   |   |   |       |   |-- [JS] OrderForm.js
+    |   |   |   |       |   |-- [CSS] OrderList.css
+    |   |   |   |       |   |-- [JS] OrderList.js
+    |   |   |   |       |   |-- [CSS] OrderProductCard.css
+    |   |   |   |       |   |-- [JS] OrderProductCard.js
+    |   |   |   |       |   |-- [CSS] ToppingModal.css
+    |   |   |   |       |   |-- [JS] ToppingModal.js
+    |   |   |   |       |   `-- [CSS] ToppingModalAdmin.css
+    |   |   |   |       |-- [DIR] products/
+    |   |   |   |       |   |-- [CSS] AdminProducts.css
+    |   |   |   |       |   `-- [JS] AdminProducts.js
+    |   |   |   |       |-- [DIR] settings/
+    |   |   |   |       |   |-- [JS] GeneralSettings.js
+    |   |   |   |       |   `-- [JS] ProfileSettings.js
+    |   |   |   |       |-- [DIR] staff/
+    |   |   |   |       |   |-- [CSS] AdminStaff.css
+    |   |   |   |       |   `-- [JS] AdminStaff.js
+    |   |   |   |       `-- [DIR] tables/
+    |   |   |   |           |-- [CSS] TableList.css
+    |   |   |   |           `-- [JS] TableList.js
+    |   |   |   |-- [DIR] cart/
+    |   |   |   |   |-- [JS] Cart.js
+    |   |   |   |   |-- [JS] CartTable.js
+    |   |   |   |   |-- [JS] CartTotal.js
+    |   |   |   |   |-- [JS] MobileCartBar.js
+    |   |   |   |   `-- [JS] cartBar.js
+    |   |   |   |-- [DIR] checkout/
+    |   |   |   |   `-- [JS] Checkout.js
+    |   |   |   |-- [DIR] common/
+    |   |   |   |   |-- [JS] HelpButton.js
+    |   |   |   |   |-- [JS] Loader.js
+    |   |   |   |   |-- [JS] PermissionRoute.js
+    |   |   |   |   |-- [JS] SearchArea.js
+    |   |   |   |   |-- [CSS] ToppingModal.css
+    |   |   |   |   `-- [JS] ToppingModal.js
+    |   |   |   |-- [DIR] contact/
+    |   |   |   |   `-- [JS] Contact.js
+    |   |   |   |-- [DIR] home/
+    |   |   |   |   |-- [JS] CartBanner.js
+    |   |   |   |   |-- [JS] FeaturesList.js
+    |   |   |   |   |-- [JS] Home.js
+    |   |   |   |   |-- [JS] HomeSlider.js
+    |   |   |   |   |-- [JS] LogoCarousel.js
+    |   |   |   |   |-- [JS] ProductSection.js
+    |   |   |   |   `-- [JS] TestimonialSection.js
+    |   |   |   |-- [DIR] layout/
+    |   |   |   |   |-- [JS] CartIcon.js
+    |   |   |   |   |-- [JS] Footer.js
+    |   |   |   |   |-- [CSS] Header.css
+    |   |   |   |   |-- [JS] Header.js
+    |   |   |   |   `-- [JS] Layout.js
+    |   |   |   |-- [DIR] menu/
+    |   |   |   |   |-- [JS] Menu.js
+    |   |   |   |   |-- [JS] ProductFilters.js
+    |   |   |   |   |-- [JS] ProductItem.js
+    |   |   |   |   `-- [JS] ProductList.js
+    |   |   |   |-- [DIR] product/
+    |   |   |   |   |-- [JS] ProductDetail.js
+    |   |   |   |   |-- [JS] ProductItem.js
+    |   |   |   |   |-- [JS] RelatedProducts.js
+    |   |   |   |   `-- [JS] SingleProduct.js
+    |   |   |   `-- [DIR] table/
+    |   |   |       `-- [JS] TableRedirect.js
+    |   |   |-- [DIR] contexts/
+    |   |   |   |-- [JS] CartContext.js
+    |   |   |   `-- [JS] TableContext.js
+    |   |   |-- [CSS] index.css
+    |   |   |-- [JS] index.js
+    |   |   |-- [JS] reportWebVitals.js
+    |   |   |-- [JS] setupTests.js
+    |   |   `-- [DIR] utils/
+    |   |       |-- [JS] axiosConfig.js
+    |   |       `-- [JS] roleConfig.js
+    |   `-- [JSON] vercel.json
+    |-- [YML] docker-compose.yml
+    |-- [SQL] foodee_backup.sql
+    |-- [MD] hdsd.md
+    |-- [SQL] init.sql
+    |-- [JS] list-structure.js
+    |-- [JSON] package-lock.json
+    |-- [JSON] package.json
+    `-- [DIR] server/
+        |-- [FILE] .dockerignore
+        |-- [FILE] Dockerfile
+        |-- [FILE] Procfile
+        |-- [JSON] api_docs.json
+        |-- [JSON] package-lock.json
+        |-- [JSON] package.json
+        |-- [DIR] public/
+        |   `-- [DIR] uploads/ (content skipped)
+        |-- [JS] server.js
+        `-- [DIR] src/
+            |-- [DIR] config/
+            |   |-- [JS] database.js
+            |   `-- [JS] emailConfig.js
+            |-- [DIR] controllers/
+            |   |-- [JS] authController.js
+            |   |-- [JS] cartController.js
+            |   |-- [JS] categoryController.js
+            |   |-- [JS] dashboardController.js
+            |   |-- [JS] newsletterController.js
+            |   |-- [JS] orderController.js
+            |   |-- [JS] productController.js
+            |   |-- [JS] productOptionController.js
+            |   |-- [JS] tableController.js
+            |   `-- [JS] userController.js
+            |-- [DIR] middleware/
+            |   |-- [JS] auth.js
+            |   `-- [JS] upload.js
+            |-- [DIR] models/
+            |   |-- [JS] categoryModel.js
+            |   |-- [JS] dashboardModel.js
+            |   |-- [JS] orderModel.js
+            |   |-- [JS] productModel.js
+            |   |-- [JS] tableModel.js
+            |   `-- [JS] userModel.js
+            |-- [DIR] routes/
+            |   |-- [JS] authRoutes.js
+            |   |-- [JS] cartRoutes.js
+            |   |-- [JS] categoryRoutes.js
+            |   |-- [JS] dashboardRoutes.js
+            |   |-- [JS] newsletterRoutes.js
+            |   |-- [JS] orderRoutes.js
+            |   |-- [JS] productOptionRoutes.js
+            |   |-- [JS] productRoutes.js
+            |   |-- [JS] supportRoutes.js
+            |   |-- [JS] tableRoutes.js
+            |   `-- [JS] userRoutes.js
+            `-- [DIR] utils/
+                `-- [JS] response.js

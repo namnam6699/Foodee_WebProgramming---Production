@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://foodeewebprogramming-copy-production.up.railway.app';
+const baseURL = 'https://api.namtech.me';
 
 const axiosClient = axios.create({
     baseURL: baseURL,
